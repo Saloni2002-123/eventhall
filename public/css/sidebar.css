@@ -1,0 +1,36 @@
+
+  .container-sidebar{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Side menubar section */
+  nav{
+    background: #fff;
+  }
+  .side_navbar{
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+    height: 87vh;
+  }
+  .side_navbar span{
+    color: gray;
+    margin: 1rem 3rem;
+    font-size: 12px;
+  }
+  .side_navbar a{
+    width: 100%;
+    padding: 0.8rem 3rem;
+    font-weight: 500;
+    font-size: 15px;
+    color: rgb(100, 100, 100);
+  }
+  .side_navbar a:hover{
+    background: rgb(235, 235, 235);
+  }
+  .side_navbar .active{
+    border-left: 2px solid rgb(100, 100, 100);
+  }
+  

@@ -1,0 +1,79 @@
+.sidebar-admin
+{
+    padding-top: 10px;
+    /* bottom:30px; */
+    display:flex;
+    height: 100vh;
+    background:#829ECE;
+    border:1px solid black;
+    padding-top:20px;
+    position:sticky;
+    margin-left: -1vh;
+    
+}
+.sidebar-admin ul{
+position:relative;
+list-style: none;
+font-size: 18px;
+}
+.sidebar-admin ul li a{
+  align-items: center;
+    text-transform: capitalize;
+    color:black;
+    position: relative;
+    padding: 10px ;
+    height:50px;
+    display:flex;
+    transition: width 2s ease;
+    border-radius: 10px;
+}
+.sidebar-admin ul li a:hover{
+    background: rgba(171, 192, 123, 0.7);
+    position:relative;
+    align-content: center;
+    left:-10px;
+    right:5px;
+    text-decoration: none;
+    color:#fff;
+}
+/* section ul .sidebar
+{
+    position:relative;
+} */
+/* section ul .sidebar:hover ul{
+    display: initial;
+} */
+.text-admin{
+    width:180px;
+    position: sticky;
+    /* position:relative; */
+    top:0px;
+    
+}
+.content-admin{
+    display:flex;
+
+}
+@media screen and (max-width: 768px) {
+    .sidebar-admin {
+    height: auto;
+    position: relative;
+    }
+    
+    .sidebar-admin ul li a {
+    padding: 5px;
+    height: auto;
+    margin: 5px 0;
+    border-radius: 5px;
+    }
+    
+    .text-admin {
+    width: auto;
+    position: static;
+    margin: 10px 0;
+    }
+    
+    .content-admin {
+    display: block;
+    }
+    }

@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-align: justify;
+}
+
+nav {
+  display: flex;
+  height: 80px;
+  width: 100%;
+  background:#4772B4;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 100px 0 20px;
+  flex-wrap: wrap;
+  position: sticky;
+}
+
+nav .logo img {
+  height: 80px;
+  width: 250px;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 5px;
+}
+
+nav ul li a {
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+  color: #111;
+  background: #fff;
+}
+
+nav .menu-btn i {
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+
+nav ul li ul {
+  background-color: #0d6efde3;
+  position: absolute;
+  display: none;
+}
+
+nav ul li:hover ul {
+  display: block;
+}
+
+nav ul li ul li {
+  padding: 0px 0px 5px 5px;
+  line-height: 30px;
+}
+nav ul li ul li .user-name
+{
+  color: #fff;
+  font: 20px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  nav {
+    padding: 0 50px 0 40px;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 920px) {
+  nav .menu-btn i {
+    display: block;
+  }
+
+  #click:checked ~ .menu-btn i:before {
+    content: "\f00d";
+  }
+
+  nav ul {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background: #111;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  #click:checked ~ ul {
+    left: 0;
+  }
+
+  nav ul li {
+    width: 100%;
+    margin: 40px 0;
+  }
+
+  nav ul li a {
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  nav ul li ul{
+    background-color: #cfd8e5;
+    position: absolute;
+    display:none;
+    border-radius: 3px;
+  }
+  nav ul li:hover ul{
+    display: block;
+  }
+  nav ul li ul li{
+   padding: 0px 0px 5px 5px;
+   line-height: 30px;
+  }
+  #click:checked ~ ul li a{
+    margin-left: 0px;
+  }
+  nav ul li a.active,
+  nav ul li a:hover{
+    background: none;
+    color: cyan;
+  }
+  .footer-col
+  {
+    width: 25%;
+  }
+
+}
+@media(max-width:574px)
+{
+  .footer-col{
+    width:100%;
+  }
+}
+.content
+{
+  width:100%;
+}
+.content img  
+{
+  padding: 20px;
+  max-width: 200vh;
+  float:left;
+  padding-right:10vh;
+}
+.content .info
+{
+  padding: 10vh;
+  padding-top:10vh;
+  padding-right:10vh;
+  font-size: 20px;
+ 
+}
+.content .info h3{
+  font-size: 55px;
+  align-items: center;
+  color: #1b5dda;
+}
+.container
+{
+    max-width :1000px;
+    margin:auto;
+
+}
+.row
+{
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+ul{
+    list-style: none;
+}
+.footer
+{
+    background-color: #24262b;
+    padding: 70px 0;
+    margin-top: 15vh;
+    height: 30%;
+}
+.footer-col
+{
+    width:30%;
+    padding:0 15px;
+}
+.footer-col h4{
+    font-size: 18px;
+    color:#ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+.footer-col h4::before{
+    content:'';
+    position: absolute;
+    left:0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+.footer-col ul li:not(:nth-last-child){
+    margin-bottom: 10px;
+}
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+.footer-col ul li a:hover
+{
+    color:#ffffff;
+    padding-left: 10px;
+}
+.footer-col .social-links a{
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255,255,255,0.2);
+  margin:0 10px 10px 0;
+  text-align : center;
+  line-height: 40px;
+  border-radius: 50%;
+  color:#ffffff;
+  transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover
+{
+  color:#24262b;
+background-color: #ffffff;
+}
+.footer-col .loc
+{
+  color: #ffffff;
+}

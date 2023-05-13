@@ -1,0 +1,80 @@
+.admin-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#4772B4;
+    height: 80px;
+    position: sticky;
+    margin-top: -1.1vh;
+    margin-right: -1.5vh;
+    margin-left: -1vh;
+    width: 202.5vh;
+    overflow: hidden;
+  }
+  
+  .logo-admin img {
+    width: 200px;
+    height: 60px;
+  }
+  
+  .greeting {
+    display: flex;
+    align-items: center;
+  }
+  
+  .greeting p {
+    margin-right: 20px;
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  .dropbtn {
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: #4772B4;
+    min-width: 80px;
+    border-radius: 5px;
+  }
+  
+  .dropdown-content a {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .logo img {
+      width: 60px;
+      height: 40px;
+    }
+    
+    .greeting p {
+      display: none;
+    }
+    
+    .dropdown {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+  

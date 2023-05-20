@@ -59,7 +59,7 @@ class AdminController extends Controller
     
         if(Auth::guard('admin')->attempt($request->only('email','password'),$request->filled('remember'))){
             //Authentication passed...
-            return redirect('dashboard');
+            return redirect('customer');
         }
     
         //Authentication failed...

@@ -1,16 +1,13 @@
 @extends('layouts.admindash')
-@section('navbar')
-@endsectiom
 @section('sidebar')
-@endsection
 @section('content')
 <form action="/edithall" method="POST">
     <br>
-<fieldset  style="padding:30px; border:4px solid #69A4A0;">
+<fieldset  style="padding:30px; border:4px solid #7C9CBA;">
 <legend><h4>&nbsp;&nbsp;<u>Edit Hall</u></h4></legend>
 @csrf
  &nbsp;&nbsp;<b>Hall Name: </b><input type="text" name="name" value="{{$data['name']}}">&nbsp;&nbsp;
- &nbsp;&nbsp;<b>Description: </b> <input type="text" name="description" value="{{$data['description']}}">&nbsp;&nbsp;
+ &nbsp;&nbsp;<b>Description: </b> <input type="textarea" name="description" value="{{$data['description']}}">&nbsp;&nbsp;
  <label>Status:</label>
     <select name="status">
         <option value="active" {{ $data->status == 'available' ? 'selected' : '' }}>Available</option>
@@ -31,5 +28,4 @@
         {{ session('success') }}
     </div>
 @endif
-@stop
 @endsection

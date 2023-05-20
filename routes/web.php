@@ -20,7 +20,7 @@ use App\Http\Controllers\Hash;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 //homepage
 Route::get('/home', [EventHallController::class, 'index'])->name('home');
@@ -53,15 +53,15 @@ Route::get('/logout', [AdminController::class,"logout"])->name('logout-admin');
 Route::get('/userreg',[UserController::class,'register']);
 Route::post('/userreg',[UserController::class,'registered'])->name('user.reg');
 //user login
-Route::get('/userlog',[UserController::class,'login'])->name('user.log');
-Route::post('/userhome',[UserController::class,'loginUser'])->name('userlog.check');
+Route::get('/customer/login',[UserController::class,'login'])->name('user.log');
+Route::post('/customer/home',[UserController::class,'loginUser'])->name('userlog.check');
 Route::get('/userdashboard',[UserController::class,'dashboardUser']);
 //user profile
-Route::get('/profile', [UserController::class,'myprofile'])->name('profile');
-Route::get('/edituser/{id}',[UserController::class,'edit'])->name('edituser');
-Route::post('/edituser',[UserController::class,'update'])->name('updateuser');
+Route::get('/customer/profile', [UserController::class,'myprofile'])->name('profile');
+Route::get('/editcustomer/{id}',[UserController::class,'edit'])->name('edituser');
+Route::post('/editcutomer',[UserController::class,'update'])->name('updateuser');
 //user-logout
-Route::get('/logout-user', [UserController::class,"logoutUser"])->name('logout-user');
+Route::get('/logout-customer', [UserController::class,"logoutUser"])->name('logout-user');
 //user-view
 Route::get('/useraboutus', [UserController::class, 'useraboutus'])->name('useraboutus');
 Route::get('/usereventhall', [UserController::class, 'viewHalls'])->name('usereventhall');

@@ -1,15 +1,15 @@
 .sidebar-admin
 {
-    padding-top: 10px;
-    /* bottom:30px; */
     display:flex;
-    height: 100vh;
+    height: 93vh;
     background:#829ECE;
     border:1px solid black;
-    padding-top:20px;
-    position:sticky;
-    margin-left: -1vh;
-    
+    position:fixed;
+    top: 10vh;
+    left: 0;
+    overflow: hidden;
+    width: 180px;
+
 }
 .sidebar-admin ul{
 position:relative;
@@ -58,6 +58,8 @@ font-size: 18px;
     .sidebar-admin {
     height: auto;
     position: relative;
+    width: 100%;
+    margin-bottom: 20px;
     }
     
     .sidebar-admin ul li a {

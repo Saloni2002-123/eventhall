@@ -19,7 +19,7 @@
     </div>
     <section class="book">
         <h3>Discover the perfect venue for your next function with Shangrila Blu Hotel and click the button to receive a customized quote and exceptional service.</h3>
-        <button><a href="{{ route('adm.log') }}">Book Now</a></button>
+        <button><a href="{{ route('user.log') }}">Book Now</a></button>
     </section>
 </section>
 @endsection

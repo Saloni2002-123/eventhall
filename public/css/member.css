@@ -5,9 +5,9 @@
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    left: 22vh;
-    width: 84%;
-    top: -100vh;
+      left: 22vh;
+    width:75%;
+    margin-left:5vh;
   }
   
   .member-table h1 {
@@ -87,4 +87,32 @@
       font-size: 12px;
     }
   }
+  /* Default style for status buttons */
+.status-btn {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+/* Style for "Active" status */
+.status-active {
+  background-color: rgb(34, 21, 181);
+  color: white;
+}
+
+/* Style for "Inactive" status */
+.status-inactive {
+  background-color: red;
+  color: white;
+}
+
+/* Style for "Pending" status */
+.status-pending {
+  background-color: yellow;
+  color: black;
+}
+
   

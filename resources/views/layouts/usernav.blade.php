@@ -27,11 +27,11 @@
         <i class="fa fa-bars"></i>
       </label>
       <ul>
-        <li><a href="{{asset('useraboutus')}}">About Us</a></li>
-        <li><a href="{{asset('usereventhall')}}">Event hall</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="{{route('profile')}}">Profile</a></li>
-        <li ><a href="#">Booking</a></li>
+        <li class="{{ request()->is('') ? 'active' : '' }}"><a href="{{asset('useraboutus')}}">About Us</a></li>
+        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{asset('usereventhall')}}">Event hall</a></li>
+        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="#">Services</a></li>
+        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{route('profile')}}">Profile</a></li>
+        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="#">Booking</a></li>
         @if(session('loginId'))
             <?php $user = \App\Models\User::find(session('loginId')); ?>
             @if($user)

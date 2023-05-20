@@ -18,13 +18,13 @@
         <i class="fa fa-bars"></i>
       </label>
       <ul>
-        <li><a href="{{asset('aboutus')}}">About Us</a></li>
-        <li><a href="{{asset('eventhall')}}">Event hall</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Login</a>
+        <li class="{{ request()->is('aboutus') ? 'active' : '' }}"><a href="{{asset('aboutus')}}">About Us</a></li>
+        <li class="{{ request()->is('eventhall') ? 'active' : '' }}"><a href="{{asset('eventhall')}}">Event hall</a></li>
+        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="#">Services</a></li>
+        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="#">Login</a>
             <ul id="submenu">
-                <li><a href="{{route('user.log')}}">User Login</a></li>
-                <li><a href="{{route('adm.log')}}">Admin Login</a></li>
+                <li><a href="{{route('user.log')}}">Customer </a></li>
+                <li><a href="{{route('adm.log')}}">Admin </a></li>
             </ul>
         </li>
 

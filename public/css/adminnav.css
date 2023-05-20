@@ -11,7 +11,11 @@
     width: 202.5vh;
     overflow: hidden;
   }
-  
+  /* .admin-nav a{
+    color: #fff;
+    font-size: 20px;
+
+  } */
   .logo-admin img {
     width: 200px;
     height: 60px;
@@ -45,14 +49,16 @@
     display: none;
     position: absolute;
     z-index: 1;
-    background-color: #4772B4;
+    background-color: #214986;
     min-width: 80px;
     border-radius: 5px;
+    border: 2px solid white;
   }
   
   .dropdown-content a {
     color: #fff;
-    padding: 10px;
+    padding: 5px;
+    margin-right: 3px;
     text-decoration: none;
     display: block;
     font-size: 16px;
@@ -61,6 +67,7 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
   
   @media screen and (max-width: 768px) {
     .logo img {

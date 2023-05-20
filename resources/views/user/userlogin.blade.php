@@ -12,7 +12,7 @@
     @if (Session::has('fail'))
     <div class="alert alert-danger">{{Session::get('fail')}}</div>
     @endif
-        <h2>User Login</h2>
+        <h2>Customer Login</h2>
             <div class="input-box-log">
                 <span class="icon"><i class="fa fa-solid fa-envelope"></i></span>
                 <input type="text" name="email" required>

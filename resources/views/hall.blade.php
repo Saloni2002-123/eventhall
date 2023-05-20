@@ -1,9 +1,6 @@
 @extends('layouts.admindash')
-@section('navbar')
-@endsection
 @section('content')
-@section('sidebar')
-@endsection
+<link rel="stylesheet" href="{{asset('css/admindash1.css')}}">
 <div class="member-table">
 <h1>&nbsp;&nbsp;<u>Hall Details</u></h1>
 <table class="table">
@@ -23,7 +20,7 @@
                 <td>{{ $hall->id }}</td>
                 <td style="text-align:justify;">{{ $hall->name }}</td>
                 <td style="text-align:justify;">{{ $hall->description }}</td>
-                <td>{{ $hall->status }}</td>
+                <td > <button class="status-btn status-active">{{ $hall->status }}</button></td>
                 <td><a href="edithall/{{$hall->id}}" class="btn btn-success">Edit</a></td>
             </tr>
         @endforeach

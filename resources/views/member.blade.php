@@ -1,9 +1,7 @@
 @extends('layouts.admindash')
-@section('navbar')
-@endsection
 @section('content')
-@section('sidebar')
-@endsection
+<link rel="stylesheet" href="{{asset('css/admindash1.css')}}">
+
 <div class="member-table">
 <h1>&nbsp;&nbsp;<u>Customer's Details</u></h1>
 <table class="table">

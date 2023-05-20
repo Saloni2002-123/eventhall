@@ -1,12 +1,11 @@
 @extends('layouts.admindash')
-@section('navbar')
-@endsectiom
-@section('sidebar')
-@endsection
+
 @section('content')
-<form action="/editmember" method="POST">
+<link rel="stylesheet" href="{{asset('css/admindash1.css')}}">
+
+<form action="/editmember" method="POST" class="editcustomer" style="width:70%;margin-left:5vh;">
     <br>
-<fieldset  style="padding:30px; border:4px solid #69A4A0;">
+<fieldset  style="padding:30px; border:4px solid  #7C9CBA; width:60%;">
 <legend><h4>&nbsp;&nbsp;<u>Edit Member</u></h4></legend>
 @csrf
 &nbsp;&nbsp;<b>ID:&nbsp;&nbsp;</b> <input type="number" name="id" value="{{$data['id']}}"><br><br>
@@ -17,5 +16,5 @@
  &nbsp;&nbsp;<button style="border-color:#FFA07A; background-color:#FFA07A;" type="submit" name="submit">Edit</button>
  </fieldset>
 </form>
-@stop
+
 @endsection

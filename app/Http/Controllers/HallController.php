@@ -43,15 +43,15 @@ public function edit($id)
  */
 public function update(Request $request)
 {
-    $data=Hall::find($request->id);
-    if (!$data) {
-        return redirect('hall')->with('fail', 'Hall not found');
-    }
-    $data->name=$request->name;
-    $data->description=$request->description;
-    $data->status = $request->input('status');
-    $data->save();
-    return redirect('hall')->with('success', 'Hall updated successfully');
+    
+   $data = Hall::find($request->id);
+$data->name = $request->name;
+$data->description = $request->description;
+$data->status = $request->status; // Adjust the length as per your column definition
+$data->save();
+// Determine the CSS class based on the status
+$buttonClass = ($data->status == 'active') ? 'active-button' : 'inactive-button';
+return redirect('hall')->with('success', 'Hall updated successfully')->with('buttonClass', $buttonClass);
 
 }
 

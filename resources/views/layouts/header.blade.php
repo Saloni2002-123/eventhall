@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
     <link rel="stylesheet" href="{{asset('css/aboutus.css')}}">
     <link rel="stylesheet" href="{{asset('css/eventhall.css')}}">
+    <link rel="stylesheet" href="{{asset('css/service.css')}}">
     <title>Landing page</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
       <ul>
         <li class="{{ request()->is('aboutus') ? 'active' : '' }}"><a href="{{asset('aboutus')}}">About Us</a></li>
         <li class="{{ request()->is('eventhall') ? 'active' : '' }}"><a href="{{asset('eventhall')}}">Event hall</a></li>
-        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="#">Services</a></li>
+        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{asset('services')}}">Services</a></li>
         <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="#">Login</a>
             <ul id="submenu">
                 <li><a href="{{route('user.log')}}">Customer </a></li>

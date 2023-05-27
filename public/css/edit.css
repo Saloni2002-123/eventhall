@@ -20,3 +20,20 @@ textarea {
     resize: none;
   }
   
+  .status-btn-hall .status-active {
+    padding: 5px 10px;
+    background-color: rgb(34, 21, 181);
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Style for "Inactive" status */
+  .status-btn-hall .status-inactive {
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  

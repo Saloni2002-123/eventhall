@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('image')->nullable();
-            $table->enum('status', ['available', 'unavailable'])->default('available');
+            $table->string('status', ['available', 'unavailable'],50)->default('available');
             $table->timestamps();
         });
     }

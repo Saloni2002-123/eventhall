@@ -20,11 +20,14 @@
     <link rel="stylesheet" href="{{asset('css/updateuserpro.css')}}">
     <link rel="stylesheet" href="{{asset('css/aboutus.css')}}">
     <link rel="stylesheet" href="{{asset('css/eventhall.css')}}">
+    <link rel="stylesheet" href="{{asset('css/booking.css')}}">
+   
     <title>Event booking</title>
 </head>
 <body>
     {{View::make('layouts.usernav')}}
     @yield('content')
     {{View::make('layouts.footer')}}
+
 </body>
 </html>

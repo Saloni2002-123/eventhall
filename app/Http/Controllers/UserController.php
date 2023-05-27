@@ -149,4 +149,14 @@ class UserController extends Controller
     $halls = $this->getHalls();
     return view('user.userevent',compact('halls', 'imagePath'));
     }
+    public function getServices()
+    {
+        $services = DB::table('services')->select('name', 'description')->get();
+        return $services;
+    }
+    public function viewServices()
+{
+    $services = $this->getServices();
+    return view('user.userservice',compact('services'));
+}
 }

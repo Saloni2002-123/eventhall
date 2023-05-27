@@ -75,4 +75,5 @@ class AdminController extends Controller
            session()->flush();
            return redirect()->route('adm.log');
         }
+
 }

@@ -10,7 +10,6 @@
       <th scope="col">Name</th>
       <th scope="col">Desription</th>
       <th scope="col">Status</th>
-      <!-- <th scope="col">Active</th> -->
       <th scope="col">Edit</th>
     </tr>
   </thead>
@@ -20,7 +19,11 @@
                 <td>{{ $hall->id }}</td>
                 <td style="text-align:justify;">{{ $hall->name }}</td>
                 <td style="text-align:justify;">{{ $hall->description }}</td>
-                <td > <button class="status-btn status-active">{{ $hall->status }}</button></td>
+                <td >@if ($hall->status == 'available')
+            <button class="status-btn-hall status-active">{{ $hall->status }}</button>
+          @else
+            <button class="status-btn-hall status-inactive">{{ $hall->status }}</button>
+          @endif</td>
                 <td><a href="edithall/{{$hall->id}}" class="btn btn-success">Edit</a></td>
             </tr>
         @endforeach

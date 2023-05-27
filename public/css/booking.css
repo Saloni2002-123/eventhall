@@ -1,0 +1,80 @@
+.booking-form
+{
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 500px;
+    text-align: center;
+    position: relative;
+    left: 35%;
+    margin-top: 50px;
+    background-color: cadetblue;
+    height: 120vh;
+}
+.booking-form h2{
+    text-align: center;
+    margin-top: 5px;
+}
+.booking-form-group {
+    margin-bottom:5px;
+    padding: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"],
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.booking-form-group .form-check {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .booking-form-group .form-check-input {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .booking-form-group .form-check-label {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+@media (max-width: 767px) {
+    .form-check-label {
+        margin-left: 10px;
+    }
+}
+@media (max-width: 768px) {
+    .booking-form-group {
+        display: block;
+    }
+
+    .booking-form-group label {
+        margin-bottom: 5px;
+    }
+
+    .booking-form-group input,
+    .booking-form-group select,
+    .booking-form-group textarea {
+        width: 100%;
+    }
+}

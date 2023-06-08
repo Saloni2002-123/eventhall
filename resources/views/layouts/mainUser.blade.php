@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{asset('css/aboutus.css')}}">
     <link rel="stylesheet" href="{{asset('css/eventhall.css')}}">
     <link rel="stylesheet" href="{{asset('css/booking.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bookinghistory.css')}}">
    
     <title>Event booking</title>
 </head>

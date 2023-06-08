@@ -2,7 +2,7 @@
 @section('content')
 <link rel="stylesheet" href="{{asset('css/admindash1.css')}}">
 <div class="member-table">
-<h1>&nbsp;&nbsp;<u>Hall Details</u></h1>
+<h1>&nbsp;&nbsp;Hall Details</h1>
 <table class="table">
   <thead class="thead-dark">
     <tr style="background-color:#69A4A0;">
@@ -24,7 +24,7 @@
           @else
             <button class="status-btn-hall status-inactive">{{ $hall->status }}</button>
           @endif</td>
-                <td><a href="edithall/{{$hall->id}}" class="btn btn-success">Edit</a></td>
+                <td><a href="edithall/{{$hall->id}}" class="btn btn-success"><i class='fa fa-edit'></i></a></td>
             </tr>
         @endforeach
     </tbody>

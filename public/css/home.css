@@ -32,6 +32,7 @@ nav ul {
 
 nav ul li {
   margin: 0 5px;
+  text-decoration: none;
 }
 
 nav ul li a {
@@ -45,12 +46,16 @@ nav ul li a {
   transition: all 0.3s ease;
 }
 
-nav ul li a.active,
 nav ul li a:hover {
   color: #111;
   background: #fff;
+  text-decoration: none;
 }
-
+nav ul li.active a {
+  color:black;
+   background: #fff;
+  
+}
 nav .menu-btn i {
   color: #fff;
   font-size: 22px;
@@ -69,8 +74,9 @@ nav ul li:hover ul {
 }
 
 nav ul li ul li {
-  padding: 0px 0px 5px 5px;
-  line-height: 30px;
+  text-align:left;
+  padding: 0px 5px 5px 5px;
+  line-height: 40px;
 }
 nav ul li ul li .user-name
 {

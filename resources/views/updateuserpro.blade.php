@@ -3,9 +3,12 @@
 <div class="update-form">
   <form method="POST" action="/edituser">
     @csrf
-    <input type="hidden" name="id" value=<div class="update-form">
-  <form method="POST" action="/edituser">
-    @csrf
+    @if (Session('success'))
+    <div class="alert alert-success" style="font-size: 14px; padding: 5px; width: 60%; margin: 0 auto;">{{Session::get('success')}}</div>
+    @endif
+    @if (Session('fail'))
+    <div class="alert alert-danger" style="font-size: 14px; padding: 5px; width: 60%; margin: 0 auto;">{{Session::get('fail')}}</div>
+    @endif
     <input type="hidden" name="id" value="{{$data->id}}">
     <div class="form-group">
       <label for="first_name">First Name:</label>

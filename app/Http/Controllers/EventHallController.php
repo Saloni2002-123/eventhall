@@ -8,16 +8,16 @@ class EventHallController extends Controller
 {
     function index()
     {
-        return view('home');
+        return view('main.home');
     }
     function aboutus()
     {
-        return view('about');
+        return view('main.about');
     }
   
     function eventhall()
     {
-        return view('event');
+        return view('main.event');
     }
  
 }

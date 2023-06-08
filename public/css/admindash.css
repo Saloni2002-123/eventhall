@@ -14,7 +14,7 @@
 
 .sidebar-admin h4 {
     font-size: 20px;
-    background: linear-gradient(to right, #0a4bbb, #a12f2f);
+    background: linear-gradient(to right, #424344, #0f0f0f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 10px;
@@ -73,6 +73,24 @@ font-size: 18px;
     display:flex;
 
 }
+.alert-success {
+    background-color: #28a745; 
+    opacity: 1;/* Change to your desired color */
+    color: #fff; /* Change to your desired text color */
+  }
+  
+  .alert-danger {
+    background-color: #dc3545; /* Change to your desired color */
+    color: #fff; /* Change to your desired text color */
+  }
+  
+  .alert {
+    font-size: 14px;
+    padding: 5px;
+    width: 60%;
+    margin: 0 auto;
+  }
+  
 @media screen and (max-width: 768px) {
     .sidebar-admin {
     height: auto;

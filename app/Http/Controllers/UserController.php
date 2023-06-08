@@ -46,10 +46,10 @@ class UserController extends Controller
         $res= $user->save();
         if($res)
         {
-            return back()->with('success','You have registered');
+            return back()->with('success','Registered successfully');
         }
         else{
-            return back()->with('fail','Something went wrong');
+            return back()->with('fail','Register Unsuccessfull');
 
         }
         return redirect()->route('');
@@ -73,6 +73,14 @@ class UserController extends Controller
             }
         }else{
             return back()->with('fail','This email is not registered');
+        }
+        if($request)
+        {
+            return back()->with('success','Login successfully');
+        }
+        else{
+            return back()->with('fail','Username or Password error');
+
         }
     }
     public function dashboardUser()
@@ -126,7 +134,15 @@ class UserController extends Controller
     }
     $data->email=$request->email;
     $data->phone_no=$request->phone_no;
-    $data->save();
+    $res=$data->save();
+    if($res)
+    {
+        return back()->with('success','Updated successfull');
+    }
+    else{
+        return back()->with('fail','Updated Unsuccessfull');
+
+    }
     return redirect('profile');
     // return $request->input();
  }

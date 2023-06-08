@@ -25,29 +25,40 @@
 {
     position: relative;
     height: 400px;
-    box-shadow: 0 30px 30px rgba(0, 0,0, 0.4);
+    margin-bottom: 30px;
+    box-shadow: 5px 5px 20px black;
     overflow: hidden;
     border-radius: 10px;
     border:5px #8c271e solid ;
     
 }
-.cont-h .box-cont-h::before{
+.box-cont-h
+{
+    height: 500px;
+}
+.box-cont-h .intro {
     position: absolute;
-    content: '';
-    top:99%;
+    bottom: 0;
     left: 0;
     width: 100%;
+    height: 0;
+    padding: 6px;
+    box-sizing: border-box;
+    background: rgba(27, 27, 27, 0.5);
+    color: white;
+    transition: height 0.2s ease 0.5s;
+    overflow: hidden;
+  }
+.box-cont-h:hover .intro {
     height: 100%;
-    background-color:rgb(22, 99, 215);
-    transition: 0.4s;
-}
-.cont-h .box-cont-h:hover::before{
-        top: 50%;
-}
+    transition: height 0.2s ease 0s;
+  }
 .cont-h .box-cont-h .imgbox
 {
     width: 100%;
-    height: 50%;
+    height: 75%;
+    border-radius: 3px;
+    transition: .5s;
 }
 .cont-h .box-cont-h .imgbox img{
 width:100%;
@@ -55,13 +66,25 @@ height: 100%;
 object-fit: cover;
 }
 .cont-h .box-cont-h h1{
-    font-size: 30px;
-    position: relative;
+    margin: 10px;
     text-align: center;
+    font-size: 24px;
+
+}
+.cont-h .box-cont-h h2{
+    color: black;
+    text-align: center;
+
+}
+.cont-h .box-cont-h:hover h2
+{
+   
+    visibility: hidden;
+    transition: height 0.2s ease 0.5s;
 }
 .cont-h .box-cont-h:hover h1
 {
-    color: white;
+    color: rgb(255, 248, 248);
 }
 .cont-h .box-cont-h p{
     font-size: 14px;
@@ -69,11 +92,16 @@ object-fit: cover;
     text-align: justify;
     padding: 5px;
    visibility: hidden;
+   transition: height 0.2s ;
 }
 .cont-h .box-cont-h:hover p{
     color: white;
     visibility: visible;
+
 }
+.box-cont-h:hover img {
+    transform: scale(1.1);
+  }
 .book{
     border-style:ridge ;
     margin-top: 30px;

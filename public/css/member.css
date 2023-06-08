@@ -1,3 +1,9 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap');
+ *{
+  font-family: 'Montserrat', sans-serif;
+ }
+
 .member-table {
     margin: 20px;
     padding: 20px;
@@ -6,7 +12,7 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     position: relative;
       left: 22vh;
-    width:75%;
+    width:80%;
     margin-left:5vh;
   }
   
@@ -14,6 +20,7 @@
     font-size: 24px;
     margin-bottom: 20px;
     color: #333;
+    text-decoration: none;
   }
   
   .table {

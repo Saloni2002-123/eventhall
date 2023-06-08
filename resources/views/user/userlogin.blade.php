@@ -6,12 +6,7 @@
        
  <form action="{{route('userlog.check')}}" method="POST">
         @csrf
-      @if (Session::has('success'))
-    <div class="alert alert-success">{{Session::get('success')}}</div>
-    @endif
-    @if (Session::has('fail'))
-    <div class="alert alert-danger">{{Session::get('fail')}}</div>
-    @endif
+   
         <h2>Customer Login</h2>
             <div class="input-box-log">
                 <span class="icon"><i class="fa fa-solid fa-envelope"></i></span>
@@ -29,6 +24,12 @@
 
             <button type="submit" class="btn-log">Login</button>
             <p>Don't have an account?<a href="{{route('user.reg')}}" class="register-link">Register</a> </p>
+            @if (Session::has('success'))
+    <div class="alert alert-success" style="font-size: 14px; padding: 5px; width: 60%; margin: 0 auto;">{{Session::get('success')}}</div>
+    @endif
+    @if (Session::has('fail'))
+    <div class="alert alert-danger" style="font-size: 14px; padding: 5px; width: 60%; margin: 0 auto;">{{Session::get('fail')}}</div>
+    @endif
         </form>
     </div>
 </div>

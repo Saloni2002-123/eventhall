@@ -20,26 +20,33 @@
     <link rel="stylesheet" href="{{asset('css/eventhall.css')}}">
     <link rel="stylesheet" href="{{asset('css/service.css')}}">
     <title>User </title>
+    <style>
+     nav ul li.active {
+  color:black;
+   background: #fff;
+  
+}
+    </style>
 </head>
 <body>
-    <nav>
-      <div class="logo"><a href="{{asset('home')}}"><img src="/img/logo.png" alt=""></a></div>
-      <input type="checkbox" id="click">
-      <label for="click" class="menu-btn">
+<nav>
+    <div class="logo"><a href="{{asset('home')}}"><img src="/img/logo.png" alt=""></a></div>
+    <input type="checkbox" id="click">
+    <label for="click" class="menu-btn">
         <i class="fa fa-bars"></i>
-      </label>
-      <ul>
-        <li class="{{ request()->is('') ? 'active' : '' }}"><a href="{{asset('useraboutus')}}">About Us</a></li>
-        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{asset('usereventhall')}}">Event hall</a></li>
-        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{asset('userservice')}}">Services</a></li>
-        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{route('profile')}}">Profile</a></li>
-        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{route('booking.history')}}">Booking</a></li>
+    </label>
+    <ul>
+        <li class="{{ request()->is('useraboutus') ? 'active' : '' }}"><a href="{{asset('useraboutus')}}">About Us</a></li>
+        <li class="{{ request()->is('usereventhall') ? 'active' : '' }}"><a href="{{asset('usereventhall')}}">Event hall</a></li>
+        <li class="{{ request()->is('userservice') ? 'active' : '' }}"><a href="{{asset('userservice')}}">Services</a></li>
+        <li class="{{ request()->is('profile') ? 'active' : '' }}"><a href="{{route('profile')}}">Profile</a></li>
+        <li class="{{ request()->is('booking.history') ? 'active' : '' }}"><a href="{{route('booking.history')}}">Booking</a></li>
         @if(session('loginId'))
-            <?php $user = \App\Models\User::find(session('loginId')); ?>
-            @if($user)
-                <li><a class="user-name">Hello {{ $user->name }}</a></li>
-                <li><a href="{{ route('logout-user') }}">Logout</a></li>
-            @endif
+        <?php $user = \App\Models\User::find(session('loginId')); ?>
+        @if($user)
+        <li><a class="user-name">Hello {{ $user->name }}</a></li>
+        <li><a href="{{ route('logout-user') }}">Logout</a></li>
+        @endif
         @else
         <li><a href="#">Login</a>
             <ul id="submenu">
@@ -48,7 +55,8 @@
             </ul>
         </li>
         @endif
-      </ul>
-    </nav>     
+    </ul>
+</nav>
+
     </body>
 </html>

@@ -20,7 +20,7 @@ class ServiceController extends Controller
     public function viewServices()
 {
     $services = $this->getServices();
-    return view('service',compact('services'));
+    return view('main.service',compact('services'));
 }
     public function index()
     {
@@ -86,10 +86,19 @@ class ServiceController extends Controller
    $data->name = $request->name;
    $data->description = $request->description;
    $data->status = $request->status; // Adjust the length as per your column definition
-   $data->save();
+   $res=$data->save();
    // Determine the CSS class based on the status
    $buttonClass = ($data->status == 'active') ? 'active-button' : 'inactive-button';
-   return redirect('serve')->with('success', 'Service updated successfully')->with('buttonClass', $buttonClass);
+   if($res)
+   {
+    return redirect('serve')->with('success', 'Service updated successfully');
+
+   }
+   else
+   {
+    return redirect('serve')->with('fail', 'Service updated fail');
+
+   }
     }
 
     /**

@@ -12,7 +12,7 @@
     <title>Landing page</title>
 </head>
 <body>
-    <nav>
+<nav>
       <div class="logo"><a href="{{asset('home')}}"><img src="/img/logo.png" alt=""></a></div>
       <input type="checkbox" id="click">
       <label for="click" class="menu-btn">
@@ -21,8 +21,8 @@
       <ul>
         <li class="{{ request()->is('aboutus') ? 'active' : '' }}"><a href="{{asset('aboutus')}}">About Us</a></li>
         <li class="{{ request()->is('eventhall') ? 'active' : '' }}"><a href="{{asset('eventhall')}}">Event hall</a></li>
-        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{asset('services')}}">Services</a></li>
-        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="#">Login</a>
+        <li class="{{ request()->is('services') ? 'active' : '' }}"><a href="{{asset('services')}}">Services</a></li>
+        <li><a href="#">Login</a>
             <ul id="submenu">
                 <li><a href="{{route('user.log')}}">Customer </a></li>
                 <li><a href="{{route('adm.log')}}">Admin </a></li>
@@ -30,6 +30,6 @@
         </li>
 
       </ul>
-    </nav>      
+    </nav>    
     </body>
 </html>

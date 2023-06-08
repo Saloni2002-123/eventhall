@@ -15,9 +15,9 @@
             <div class="footer-col">
                 <h4>Shangrila Blu Hotel</h4>
                 <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Event hall</a></li>
-                    <li><a href="#">Services</a></li>
+                    <li><a href="{{asset('aboutus')}}">About Us</a></li>
+                    <li><a href="{{asset('eventhall')}}">Event hall</a></li>
+                    <li><a href="{{asset('services')}}">Services</a></li>
                 </ul>
             </div>
             <div class="footer-col">

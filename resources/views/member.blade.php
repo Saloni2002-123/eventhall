@@ -1,9 +1,8 @@
 @extends('layouts.admindash')
 @section('content')
-<link rel="stylesheet" href="{{asset('css/admindash1.css')}}">
 
 <div class="member-table">
-<h1>&nbsp;&nbsp;<u>Customer's Details</u></h1>
+<h1>&nbsp;&nbsp;Customer Details</h1>
 <table class="table">
   <thead class="thead-dark">
     <tr style="background-color:#69A4A0;">
@@ -12,11 +11,10 @@
       <th scope="col">Last Name</th>
       <th scope="col">Phone No.</th>
       <th scope="col">Email</th>
-      <th scope="col">username</th>
+      <th scope="col">Username</th>
       <th scope="col">Regdate</th>
       <!-- <th scope="col">Active</th> -->
       <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -32,8 +30,7 @@
         <!-- <td>
         <input data-id="{{$user->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="yes" data-off="no" {{ $user->active=='yes' ? 'checked' : '' }}>
         </td> -->
-        <td><a href="editmember/{{$user->id}}" class="btn btn-success">Edit</a></td>
-        <td><a href="deletemember/{{$user->id}}" class="btn btn-danger">Delete</a></td>
+        <td><a href="editmember/{{$user->id}}" class="btn btn-success"><i class='fa fa-edit'></i></a></td>
         </tr>
     @empty
         <tr>

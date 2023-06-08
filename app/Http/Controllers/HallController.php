@@ -17,10 +17,11 @@ class HallController extends Controller
     $halls = DB::table('hall_lists')->select('name', 'description','image')->get();
     return $halls;
 }
+
 public function viewHalls()
 {
     $halls = $this->getHalls();
-    return view('event',compact('halls'));
+    return view('main.event',compact('halls'));
 }
 public function show($id)
 {
@@ -47,11 +48,19 @@ public function update(Request $request)
    $data = Hall::find($request->id);
 $data->name = $request->name;
 $data->description = $request->description;
-$data->status = $request->status; // Adjust the length as per your column definition
-$data->save();
-// Determine the CSS class based on the status
+$data->status = $request->status; 
+$res=$data->save();
 $buttonClass = ($data->status == 'active') ? 'active-button' : 'inactive-button';
-return redirect('hall')->with('success', 'Hall updated successfully')->with('buttonClass', $buttonClass);
+if($res)
+{
+    return redirect('hall')->with('success', 'Hall updated successfully')->with('buttonClass', $buttonClass);
+}
+else{
+    return redirect('hall')->with('fail', 'Hall updated failed')->with('buttonClass', $buttonClass);
+}
+// Determine the CSS class based on the status
+
+// return redirect('hall')->with('success', 'Hall updated successfully')->with('buttonClass', $buttonClass);
 
 }
 
@@ -66,5 +75,5 @@ return redirect('hall')->with('success', 'Hall updated successfully')->with('but
         $halls=Hall::all();
         return view('hall',compact('halls'));
     }
-
+   
 }

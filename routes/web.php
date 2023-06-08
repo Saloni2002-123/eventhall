@@ -22,13 +22,14 @@ use App\Http\Controllers\Hash;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('main.home');
 });
 //homepage
 Route::get('/home', [EventHallController::class, 'index'])->name('home');
 Route::get('/aboutus', [EventHallController::class, 'aboutus'])->name('aboutus');
 
 Route::get('/eventhall', [HallController::class, 'viewHalls'])->name('eventhall');
+
 Route::get('/services', [ServiceController::class, 'viewServices'])->name('service');
 
 //admin signup
@@ -71,7 +72,6 @@ Route::get('/userservice', [UserController::class, 'viewServices'])->name('users
 //customer
 Route::get('/customer',[CustomerController::class,'customer'])->name('customer');
 //Route::get('/memberstatus',[UserController::class,'status'])->name('changeStatus');
-Route::get('deletemember/{id}',[CustomerController::class,'destroy'])->name('user.delete');
 Route::get('editmember/{id}',[CustomerController::class,'edit'])->name('user.edit');
 Route::post('editmember',[CustomerController::class,'update'])->name('user.update');
 
@@ -89,3 +89,7 @@ Route::post('/editservice',[ServiceController::class,'update'])->name('service.u
  Route::get('/booking', [BookingController::class, 'showBookingForm'])->name('booking.form');
  Route::post('/bookingstore',[BookingController::class,'store'])->name('booking.store');
  Route::get('/booking/history', [BookingController::class,'booking'])->name('booking.history');
+ Route::get('/bookingView', [BookingController::class,'bookingView'])->name('booking.view');
+ Route::get('editbooking/{id}',[BookingController::class,'edit'])->name('booking.edit');
+ Route::post('editbooking',[BookingController::class,'update'])->name('booking.update');
+ Route::get('/delete/booking/{id}',[BookingController::class,'deleteBooking'])->name('booking.delete');

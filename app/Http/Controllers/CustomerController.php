@@ -92,7 +92,6 @@ class CustomerController extends Controller
     public function destroy($id)
     {
         $data=User::find($id);
-        $data->delete();
         return redirect('customer');
     }
     public function customer()

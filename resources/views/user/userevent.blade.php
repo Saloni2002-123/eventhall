@@ -16,8 +16,12 @@
                 <img src="{{ asset('img/' . (($hall->name)) . '.jpg') }}" alt="{{ $hall->name }}">     
                 @endif          
              </div>
+             <h2> {{ $hall->name }}</h2>
+             <div class="intro">
+                
                 <h1>{{ $hall->name }}</h1>
-                <p>{{ $hall->description }}</p>
+                   <p>{{ $hall->description }}</p>
+                </div>
             </div>
         @endforeach
     </div>

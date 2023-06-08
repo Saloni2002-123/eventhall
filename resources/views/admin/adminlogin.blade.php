@@ -5,7 +5,9 @@
     <div class="form-adm">
         <h2>Admin Login</h2>
         <form action="{{route('admlog.check')}}" method="POST">
-       
+       <div class="curved">
+        
+       </div>
 @csrf
 @if (Session::has('success'))
 <div class="alert alert-success">{{Session::get('success')}}</div>

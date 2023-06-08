@@ -6,7 +6,8 @@ form{
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     position: relative;
     left: 22vh;
-    width: 84%;
+    width: 95%;
+    align-items: center;
 }
 textarea {
     width: 100%;

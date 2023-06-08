@@ -1,12 +1,23 @@
 @extends('layouts.mainUser')
 
 @section('content')
+<div class="booking-f">
+
+
     <div class="booking-form">
+      
         <h2>Booking Form</h2>
 
         <form action="{{ route('booking.store') }}" method="POST">
             @csrf
-
+            <div class="curve">
+        </div>
+            @if (Session::has('success'))
+    <div class="alert alert-success" style="font-size: 14px; padding: 5px; width: 60%; margin: 0 auto;">{{Session::get('success')}}</div>
+    @endif
+    @if (Session::has('fail'))
+    <div class="alert alert-danger" style="font-size: 14px; padding: 5px; width: 60%; margin: 0 auto;">{{Session::get('fail')}}</div>
+    @endif
             <div class="booking-form-group">
                 <label for="hall">Hall</label>
                 <select name="hall_id" id="hall" class="form-control" required>
@@ -40,8 +51,12 @@
                 <label for="remarks">Remarks</label>
                 <textarea name="remarks" id="remarks" class="form-control"></textarea>
             </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="booking-form-group">
+            <button type="submit"class="sub">
+                Submit
+            </button>
+            </div>
         </form>
     </div>
+</div>
 @endsection

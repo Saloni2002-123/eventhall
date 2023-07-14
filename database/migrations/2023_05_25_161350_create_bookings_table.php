@@ -21,8 +21,8 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('hall_id')->references('id')->on('hall_lists')->onDelete('cascade');
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
-            $table->dateTime('wedding_schedule');
             $table->integer('total_guests');
+            $table->dateTime('event_schedule');
             $table->text('remarks');
             $table->enum('status', ['Pending', 'Confirmed','Done','Cancelled'])->default('Pending');
             $table->timestamps();

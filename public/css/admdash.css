@@ -1,0 +1,26 @@
+.admin-dashboard
+{
+    position: relative;
+    margin-top: 2vh;
+   padding-left: 30vh;
+    min-height: 90vh;
+}
+.admin-dashboard .cards
+{
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.admin-dashboard .cards .card{
+    width: 250px;
+    height: 150px;
+    background: rgba(147, 157, 172, 0.945);
+    margin: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+

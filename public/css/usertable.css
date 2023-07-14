@@ -70,6 +70,21 @@
     color: white;
     text-decoration: none;
   }
+  .booking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.booking-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    padding: 20px;
+}
+
+/* Rest of your existing styles */
+
   /* Responsive */
   @media screen and (max-width: 768px) {
     .user-table {

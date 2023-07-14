@@ -42,61 +42,43 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         $userId = Session::get('loginId');
+    
+        // Retrieve the user instance
+        $user = User::find($userId);
+    
         // Validate the form data
         $validatedData = $request->validate([
             'hall_id' => 'required',
-           
-            'services.*' => 'exists:services,id',
+            'services' => 'nullable|array',
             'total_guests' => 'required|integer',
-            'event_schedule' => 'required|date',
+            'event_schedule' => 'required|date_format:Y-m-d\TH:i',
             'remarks' => 'nullable|string',
         ]);
-
-        // Retrieve the user instance
-        $user = User::find($userId);
-        if ($user) {
-            // Retrieve the hall instance
-            $hall = Hall::find($validatedData['hall_id']);
-            if ($hall) {
-                // Retrieve the service instances
-           
-                // Create a new booking instance
-                $booking = new Booking();
-                $booking->user_id = $user->id;
-                $booking->hall_id = $hall->id;
-               
-                $booking->total_guests = $validatedData['total_guests'];
-                $booking->event_schedule = $validatedData['event_schedule'];
-                $booking->remarks = $validatedData['remarks'];
-          
-                // Save the booking instance to the database
-               $res= $booking->save();
-
-                // Attach the services to the booking
-          
-                $booking->services()->attach($validatedData['services'], ['booking_id' => $booking->id]);
-                if (!empty($validatedData['services'])) {
-                    $booking->service_id = $validatedData['services'][0];
-                    $booking->save();
-                }
-        
-                return redirect()->route('booking.form', $booking->id)->with('success', 'Booking created successfully!');
-            } else {
-                // Hall not found, handle the error appropriately
-                return back()->with('fail', 'Hall not found');
-            }
+    
+        // Retrieve the hall instance
+        $hall = Hall::find($validatedData['hall_id']);
+        if ($hall) {
+            // Create a new booking instance
+            $booking = new Booking();
+            $booking->user_id = $user->id;
+            $booking->hall_id = $hall->id;
+            $booking->total_guests = $validatedData['total_guests'];
+            $booking->event_schedule = $validatedData['event_schedule'];
+            $booking->remarks = $validatedData['remarks'];
+    
+            // Save the booking instance to the database
+            $booking->save();
+    
+            // Attach the services to the booking
+            $booking->services()->attach($validatedData['services'], ['booking_id' => $booking->id]);
+    
+            return redirect()->route('booking.form')->with('success', 'Booking created successfully! Confirmation could be done through a call.');
         } else {
-            // User not found, handle the error appropriately
-            return back()->with('fail', 'User not found');
-        }
-        if($res)
-        {
-            return back()->with('success','Booking Done');
-        }
-        else{
-            return back()->with('fail','Booking Failed');
+            // Hall not found, handle the error appropriately
+            return back()->with('fail', 'Hall not found');
         }
     }
+    
     public function showBookingForm()
     {
         $halls = Hall::all();
@@ -125,12 +107,12 @@ class BookingController extends Controller
     public function edit($id)
     {
         $data = Booking::with('hall', 'services')
-            ->select('bookings.id', 'users.name as user_name', 'hall_lists.name as hall_name', 'bookings.event_schedule', 'bookings.total_guests', 'bookings.status', DB::raw('GROUP_CONCAT(services.name) as service_names'))
+            ->select('bookings.id', 'users.name as user_name', 'hall_lists.name as hall_name', 'bookings.event_schedule',  'bookings.total_guests', 'bookings.status','bookings.remarks', DB::raw('GROUP_CONCAT(services.name) as service_names'))
             ->join('users', 'users.id', '=', 'bookings.user_id')
             ->join('hall_lists', 'hall_lists.id', '=', 'bookings.hall_id')
             ->join('booking_service', 'booking_service.booking_id', '=', 'bookings.id')
             ->join('services', 'services.id', '=', 'booking_service.service_id')
-            ->groupBy('bookings.id', 'hall_lists.name', 'bookings.event_schedule', 'bookings.total_guests', 'bookings.status', 'users.name')
+            ->groupBy('bookings.id', 'hall_lists.name', 'bookings.event_schedule', 'bookings.total_guests', 'bookings.status', 'users.name','bookings.remarks')
             ->findOrFail($id);
     
         $services = Service::all(); // Replace 'Service' with your actual service model class name
@@ -151,12 +133,12 @@ class BookingController extends Controller
 
 {
     $booking =  Booking::with('hall', 'services')
-    ->select('bookings.id', 'users.name as user_name', 'hall_lists.name as hall_name', 'bookings.event_schedule', 'bookings.total_guests', 'bookings.status', DB::raw('GROUP_CONCAT(services.name) as service_names'))
+    ->select('bookings.id', 'users.name as user_name', 'hall_lists.name as hall_name', 'bookings.event_schedule', 'bookings.total_guests', 'bookings.status','bookings.remarks', DB::raw('GROUP_CONCAT(services.name) as service_names'))
     ->join('users', 'users.id', '=', 'bookings.user_id')
     ->join('hall_lists', 'hall_lists.id', '=', 'bookings.hall_id')
     ->join('booking_service', 'booking_service.booking_id', '=', 'bookings.id')
     ->join('services', 'services.id', '=', 'booking_service.service_id')
-    ->groupBy('bookings.id', 'hall_lists.name', 'bookings.event_schedule', 'bookings.total_guests', 'bookings.status', 'users.name')
+    ->groupBy('bookings.id', 'hall_lists.name',  'bookings.event_schedule', 'bookings.total_guests', 'bookings.status', 'users.name','bookings.remarks')
     ->findOrFail($request->id);
 
     // Validate the input
@@ -164,16 +146,20 @@ class BookingController extends Controller
         'user_name' => 'required|string',
         'hall_name' => 'required|string',
         'services' => 'nullable|array',
-        'event_schedule' => 'required|date',
+        'event_schedule' => 'required|date_format:Y-m-d\TH:i',
         'total_guests' => 'required|integer',
+        'remarks' => 'nullable|string',
         'status' => 'required|string',
+        
     ]);
 
     // Update the booking data
     $booking->user_name = $validatedData['user_name'];
     $booking->hall_name = $validatedData['hall_name'];
     $booking->event_schedule = $validatedData['event_schedule'];
+    
     $booking->total_guests = $validatedData['total_guests'];
+    $booking->remarks = $validatedData['remarks'];
     $booking->status = $validatedData['status'];
 
     // Sync the services
@@ -210,13 +196,13 @@ class BookingController extends Controller
         $data = [];
         if (Session::has('loginId')) {
             $result = Booking::with('hall', 'services')
-            ->select('bookings.id', 'hall_lists.name as hall_name', 'bookings.event_schedule', 'bookings.total_guests', 'bookings.status',DB::raw('GROUP_CONCAT(services.name) as service_names'))
+            ->select('bookings.id', 'hall_lists.name as hall_name', 'bookings.event_schedule',  'bookings.total_guests', 'bookings.status','bookings.remarks',DB::raw('GROUP_CONCAT(services.name) as service_names'))
             ->join('users', 'users.id', '=', 'bookings.user_id')
             ->join('hall_lists', 'hall_lists.id', '=', 'bookings.hall_id')
             ->join('booking_service', 'booking_service.booking_id', '=', 'bookings.id')
             ->join('services', 'services.id', '=', 'booking_service.service_id')
             ->where('users.id', Session::get('loginId'))
-            ->groupBy('bookings.id', 'hall_lists.name', 'bookings.event_schedule', 'bookings.total_guests','bookings.status')
+            ->groupBy('bookings.id', 'hall_lists.name', 'bookings.event_schedule',  'bookings.total_guests','bookings.status','bookings.remarks')
             ->get();
             $data['result'] = $result;
             return view('booking.booking', $data);
@@ -227,12 +213,12 @@ class BookingController extends Controller
     {
         $data = [];
             $result = Booking::with('hall', 'services')
-            ->select('bookings.id', 'users.name as user_name','hall_lists.name as hall_name', 'bookings.event_schedule', 'bookings.total_guests', 'bookings.status',DB::raw('GROUP_CONCAT(services.name) as service_names'))
+            ->select('bookings.id', 'users.name as user_name','hall_lists.name as hall_name', 'bookings.event_schedule','bookings.total_guests', 'bookings.status','bookings.remarks',DB::raw('GROUP_CONCAT(services.name) as service_names'))
             ->join('users', 'users.id', '=', 'bookings.user_id')
             ->join('hall_lists', 'hall_lists.id', '=', 'bookings.hall_id')
             ->join('booking_service', 'booking_service.booking_id', '=', 'bookings.id')
             ->join('services', 'services.id', '=', 'booking_service.service_id')
-            ->groupBy('bookings.id', 'hall_lists.name', 'bookings.event_schedule', 'bookings.total_guests','bookings.status','users.name')
+            ->groupBy('bookings.id', 'hall_lists.name', 'bookings.event_schedule', 'bookings.total_guests','bookings.status','users.name','bookings.remarks')
             ->get();
             $data['result'] = $result;
             return view('booking.bookingdetail', $data);

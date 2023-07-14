@@ -2,25 +2,26 @@
 
 @section('content')
 <link rel="stylesheet" href="{{asset('css/admindash1.css')}}">
+
 <style>
     .status-btn {
         color:white;
     }
 
     .status-btn.pending {
-        background-color: #FFA07A; /* Customize the color for the 'Pending' status */
+        background-color:#92d224; /* Customize the color for the 'Pending' status */
     }
 
     .status-btn.confirmed {
-        background-color: green; /* Customize the color for the 'Confirmed' status */
+        background-color:#066C06;  /* Customize the color for the 'Confirmed' status */
     }
 
     .status-btn.done {
-        background-color: #00FF00; /* Customize the color for the 'Done' status */
+        background-color:  #1a1aa1;  /* Customize the color for the 'Done' status */
     }
 
     .status-btn.cancelled {
-        background-color: #FF0000; /* Customize the color for the 'Cancelled' status */
+        background-color: #CF1B1B;  /* Customize the color for the 'Cancelled' status */
     }
 </style>
 @if (session('success'))
@@ -46,8 +47,9 @@
       <th scope="col">Event Schedule</th>
       <th scope="col">Total Guests</th>
       <th scope="col">Status</th>
+      <th scope="col">Remarks</th>
       <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
+      <!-- <th scope="col">Delete</th> -->
     </tr>
   </thead>
   <tbody>
@@ -59,12 +61,13 @@
         <td>@foreach($booking->services as $serve)
                 {{ $serve->name }}<br/>
             @endforeach</td>
-        <td>{{$booking->event_schedule}}</td>
+            <td>{{ date('m/d/Y h:i A', strtotime($booking->event_schedule)) }}</td>
+
         <td>{{$booking->total_guests}}</td>
         <td><button class="status-btn {{$booking->status == 'Pending' ? 'pending' : ($booking->status == 'Confirmed' ? 'confirmed' : ($booking->status == 'Done' ? 'done' : 'cancelled'))}}">{{$booking->status}}</button></td>
-      
+        <td>{{$booking->remarks}}</td>
         <td><a href="{{ route('booking.edit', ['id' => $booking->id]) }}" class="btn btn-success"><i class='fa fa-edit'></i></a></td>
-        <td><a href="delete/booking/{{$booking->id}}" class="btn btn-danger"><i class='fa fa-trash'></i></a></td>
+
         </tr>
     @empty
         <tr>

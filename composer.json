@@ -60,6 +60,9 @@
             "pestphp/pest-plugin": true
         }
     },
+    "files": [
+        "status.php"
+    ],
     "minimum-stability": "stable",
     "prefer-stable": true
 }

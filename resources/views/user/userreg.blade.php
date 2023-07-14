@@ -5,6 +5,9 @@
             <div class="form-box-register">
               
              <form action="{{route('user.reg')}}"method="post">
+             <div class="curve">
+                        
+            </div>
                 @if(Session::has('success'))
                     <div class="alert alert-success" style="font-size: 14px; padding: 5px; width: 60%; margin: 0 auto;">{{Session::get('success')}}</div>
                     @endif

@@ -41,7 +41,7 @@ Route::namespace('Auth')->group(function(){
 Route::get('/admlog',[AdminController::class,'login'])->name('adm.log');
 Route::post('/admlogCheck',[AdminController::class,"loginAdmin"])->name('admlog.check');
 //admin-dash
-Route::get('/dashboard', [AdminController::class,"dashboard"]);
+Route::get('/dashboard', [AdminController::class,"dashboard"])->name('dashboard');
 //admin-logout
 Route::get('/logout', [AdminController::class,"logout"])->name('logout-admin');
 
@@ -91,5 +91,4 @@ Route::post('/editservice',[ServiceController::class,'update'])->name('service.u
  Route::get('/booking/history', [BookingController::class,'booking'])->name('booking.history');
  Route::get('/bookingView', [BookingController::class,'bookingView'])->name('booking.view');
  Route::get('editbooking/{id}',[BookingController::class,'edit'])->name('booking.edit');
- Route::post('editbooking',[BookingController::class,'update'])->name('booking.update');
- Route::get('/delete/booking/{id}',[BookingController::class,'deleteBooking'])->name('booking.delete');
+ Route::post('editbooking', [BookingController::class, 'update'])->name('booking.update');

@@ -77,6 +77,7 @@ class CustomerController extends Controller
         $data->id=$request->id;
         $data->first_name=$request->first_name;
         $data->last_name=$request->last_name;
+        $data->name=$request->name;
         $data->phone_no=$request->phone_no;
         $data->email=$request->email;
         $data->save();

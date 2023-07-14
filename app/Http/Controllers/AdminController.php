@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
+use App\Models\User;
+use App\Models\Booking;
+use App\Models\Hall;
+use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use DateTime;
 
 class AdminController extends Controller
 {
@@ -59,7 +64,7 @@ class AdminController extends Controller
     
         if(Auth::guard('admin')->attempt($request->only('email','password'),$request->filled('remember'))){
             //Authentication passed...
-            return redirect('customer');
+            return redirect('dashboard');
         }
     
         //Authentication failed...
@@ -67,8 +72,29 @@ class AdminController extends Controller
     }
     public function dashboard()
     {
-        return view('layouts.admindash');
+        $totalHalls=Hall::where('status','available')->count();
+        $totalBookings=Booking::where('status','confirmed')->count();
+        $totalServices=Service::where('status','available')->count();
+        $totalCustomers=User::count(); 
+        $bookings = Booking::with('user')->get();
+
+        $events = [];
+        foreach ($bookings as $booking) {
+            $startDateTime = new DateTime($booking->event_schedule);
+            $endDateTime = clone $startDateTime;
+            $events[] = [
+                'title' => $booking->remarks,
+                'start' => $startDateTime->format('Y-m-d\TH:i:s'), // Format start time with T separator
+                'end' => $endDateTime->format('Y-m-d\TH:i:s'),
+                'status' => $booking->status,
+                'username' => $booking->user->name,
+            ];
+        }
+    
+        return view('admindashoard', compact('totalHalls','totalServices','totalBookings','totalCustomers','events'));
+
     }
+ 
         //logout
         public function logout(Request $request)
         {

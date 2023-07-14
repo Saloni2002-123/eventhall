@@ -11,13 +11,11 @@ class HallController extends Controller
 {
 
     public function getHalls()
-{
-       // specify the path to the image directory in your application
-      
-    $halls = DB::table('hall_lists')->select('name', 'description','image')->get();
-    return $halls;
-}
-
+    {
+        $halls = DB::table('hall_lists')->select('name', 'description', 'status')->get();
+        return $halls;
+    }
+    
 public function viewHalls()
 {
     $halls = $this->getHalls();
@@ -70,10 +68,10 @@ else{
  * @param  int  $id
  * @return \Illuminate\Http\Response
  */
-   public function hall()
-    {
-        $halls=Hall::all();
-        return view('hall',compact('halls'));
-    }
-   
+public function hall()
+{
+    $halls=Hall::all();
+    return view('hall', compact('halls'));
+}
+
 }

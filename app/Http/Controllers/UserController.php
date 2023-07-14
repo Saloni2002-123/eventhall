@@ -129,8 +129,8 @@ class UserController extends Controller
     $data=User::find($request->id);
     $data->first_name=$request->first_name;
     $data->last_name=$request->last_name;
-    if(!empty($request->name)) {
-        $data->name=$request->name;
+    if ($request->has('name') && !empty($request->name)) {
+        $data->name = $request->name;
     }
     $data->email=$request->email;
     $data->phone_no=$request->phone_no;
